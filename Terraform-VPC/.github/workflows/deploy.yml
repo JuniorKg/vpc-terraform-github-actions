@@ -1,10 +1,10 @@
-name: Terraform CI/CD Pipeline for Deploying AWS Resources
-run-name: ${{ github.actor }} has trigger the pipeline
+name: Terraform CI CD Pipeline for Deploying AWS Resources
+run-name: ${{ github.actor }} has triggered the pipeline
 
 on:
   push:
     branches:
-      - "main"
+      - 'main'
 
 env:
   AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
@@ -33,6 +33,5 @@ jobs:
         working-directory: ./Terraform-VPC
       - name: Terraform Apply
         id: apply
-        run: terraform apply --auto-approve
+        run: terraform destroy --auto-approve
         working-directory: ./Terraform-VPC
-       
